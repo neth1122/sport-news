@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Ensure images and videos are responsive */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive container for sections */
+.container, .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container {
+    position: relative;
+}
+
+.container .slide-container .slide {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.container .slide-container .slide video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    animation: fadeIn .4s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(1.5);
+    }
+}
+
+.container .slide-container .slide .content {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.container .slide-container .slide .content h3 {
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    animation: animate .4s linear .4s backwards;
+}
+
+.container .slide-container .slide .content p {
+    font-size: 15px;
+    color: #eee;
+    padding: 5px 0;
+    font-weight: lighter;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    animation: animate .4s linear .6s backwards;
+}
+
+.container .slide-container .slide .content .btn {
+    display: inline-block;
+    padding: 9px 30px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    color: #333;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 10px;
+    transition: .2s linear;
+    animation: animate .4s linear 1s backwards;
+}
+
+.container .slide-container .slide .content .btn:hover {
+    letter-spacing: 2px;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: scale(.5) translateY(-50px);
+    }
+}
+
+.container .slide-container {
+    display: none;
+}
+
+.container .slide-container.active {
+    display: block;
+}
+
+.container #next,
+.container #prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: #fff;
+    color: #333;
+    font-weight: bold;
+    height: 60px;
+    width: 50px;
+    line-height: 55px;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.container #next {
+    right: 0;
+}
+
+.container #prev {
+    left: 0;
+}
+
+/* Pop-up container (hidden by default) */
+.popup-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it appears above other elements */
+    padding: 20px;
+}
+
+/* Pop-up content box */
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%; /* Default width for smaller screens */
+    max-width: 500px; /* Limit the width for larger screens */
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .popup-content {
+        width: 50%; /* Adjust width for tablets and larger screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .popup-content {
+        width: 30%; /* Adjust width for desktops and larger screens */
+    }
+}
+
+.close-btn:hover{
+    background-color: #bb3d3d;
+    color: #fff;
+}
+
+.bodyb{
+    font-weight: bold;
+}
+
+/* Blur effect for the background */
+body.popup-active {
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Ensure the pop-up content is not blurred */
+.popup-content .popup-container {
+    filter: none;
+}
+
+/* Navbar Responsiveness */
+.navbar {
+    flex-wrap: wrap;
+}
+
+.navbar-collapse {
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.input-group {
+    width: 100%;
+}
+
+/* Pop-up Responsiveness */
+.popup-content {
+    width: 90%; /* Default for small screens */
+    max-width: 500px; /* Limit width for larger screens */
+}
+
+/* Responsive Slideshow */
+.slide-container {
+    width: 100%;
+    height: auto;
+}
+
+.slide video {
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive News Cards */
+.news-carousel .position-relative {
+    height: auto;
+}
+
+/* Advertisement Responsiveness */
+.advertisement img {
+    width: 100%;
+    height: auto;
+}
+
+/* Footer Responsiveness */
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Media Queries for Different Screen Sizes */
+
+/* For tablets and small desktops */
+@media (min-width: 768px) {
+    .popup-content {
+        width: 50%;
+    }
+
+    .navbar-collapse {
+        justify-content: flex-start;
+    }
+}
+
+/* For larger desktops */
+@media (min-width: 1200px) {
+    .popup-content {
+        width: 30%;
+    }
+}
+
+/* For small mobile screens (e.g., Tecno Pop 7) */
+@media (max-width: 720px) {
+    /* Adjust pop-up content */
+    .popup-content {
+        width: 95%; /* Use almost full width */
+        max-width: none; /* Remove max-width restriction */
+        padding: 15px; /* Reduce padding */
+    }
+
+    /* Adjust text sizes */
+    h4, p {
+        font-size: 14px; /* Reduce font size for better readability */
+        line-height: 1.5; /* Adjust line height */
+    }
+
+    /* Adjust buttons */
+    .btn {
+        font-size: 14px; /* Smaller button text */
+        padding: 8px 20px; /* Adjust padding */
+    }
+
+    /* Adjust navbar */
+    .navbar {
+        flex-direction: column; /* Stack navbar items vertically */
+    }
+
+    .navbar-collapse {
+        justify-content: center; /* Center navbar items */
+    }
+
+    /* Adjust images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Adjust slideshow */
+    .slide-container {
+        height: auto; /* Allow slideshow to adjust height */
+    }
+
+    .slide video {
+        height: auto;
+    }
+
+    /* Adjust footer */
+    .footer {
+        font-size: 12px; /* Smaller footer text */
+        padding: 10px;
+    }
+}
+
